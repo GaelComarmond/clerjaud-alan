@@ -5,7 +5,7 @@ export default function SiteFooter() {
     <footer className="site-footer">
       <div className="shell footer-main">
         <div className="footer-intro">
-          <Image src="/logo/clerjaud-alan-logo.png" alt="Clerjaud Alan" width={1500} height={520} />
+          <Image src="/logo/logo.png" alt="Clerjaud Alan" width={1500} height={520} />
           <p>Un interlocuteur pour la serrurerie, la vitrerie, la plomberie et le chauffage.</p>
         </div>
         <div>

@@ -21,7 +21,7 @@ export default function SiteHeader() {
       <div className="site-header__inner shell">
         <a href="#accueil" className="header-brand" aria-label="Clerjaud Alan, accueil" onClick={close}>
           <Image
-            src="/logo/clerjaud-alan-logo.png"
+            src="/logo/logo.png"
             alt="Clerjaud Alan — Serrurerie, vitrerie, plomberie, chauffage"
             width={1500}
             height={520}

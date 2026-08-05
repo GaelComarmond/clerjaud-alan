@@ -104,7 +104,6 @@ svg { display: block; }
 .hero__proof strong { color: white; font-size: 20px; }
 .hero__proof span { color: #90a3bc; font-size: 11px; line-height: 1.4; }
 .hero__visual { height: 580px; position: relative; display: grid; place-items: center; }
-.hero__visual::before { content: ""; position: absolute; width: 84%; height: 92%; top: 2%; right: 0; border: 1px solid rgba(255,255,255,.16); transform: translate(24px,-18px); }
 .hero__brand-card {
   position: relative;
   width: min(92%, 500px);
