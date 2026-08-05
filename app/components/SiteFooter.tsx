@@ -11,6 +11,7 @@ export default function SiteFooter() {
         <div>
           <span className="footer-title">Contact</span>
           <a href="tel:+33663897219">06 63 89 72 19</a>
+          <a href="mailto:alan-assistance@hotmail.fr">alan-assistance@hotmail.fr</a>
           <address>16 Av. Pierre Mendès-France<br />94880 Noiseau</address>
         </div>
         <div>
