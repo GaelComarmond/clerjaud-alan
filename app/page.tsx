@@ -1,4 +1,3 @@
-import Image from "next/image";
 import QuoteForm from "./components/QuoteForm";
 import SiteFooter from "./components/SiteFooter";
 import SiteHeader from "./components/SiteHeader";
@@ -57,6 +56,43 @@ const trades = [
     ],
     icon: "heat",
   },
+];
+
+const galleryItems = [
+  {
+    number: "01",
+    title: "Serrurerie & sécurisation",
+    text: "Ouverture, remplacement de cylindres et remise en sécurité des accès.",
+  },
+  {
+    number: "02",
+    title: "Vitrerie & ouvertures",
+    text: "Interventions sur vitrages, fenêtres, portes et fermetures.",
+  },
+  {
+    number: "03",
+    title: "Plomberie",
+    text: "Recherche de fuite, dépannage sanitaire et remise en état.",
+  },
+  {
+    number: "04",
+    title: "Chauffage",
+    text: "Entretien, installation et réparation des équipements de chauffage.",
+  },
+];
+
+const serviceAreas = [
+  { name: "Sucy-en-Brie", position: "one" },
+  { name: "Saint-Maur-des-Fossés", position: "two" },
+  { name: "Ormesson-sur-Marne", position: "three" },
+  { name: "La Varenne-Saint-Hilaire", position: "four" },
+  { name: "Chennevières-sur-Marne", position: "five" },
+  { name: "Marolles-en-Brie", position: "six" },
+  { name: "Santeny", position: "seven" },
+  { name: "Champigny-sur-Marne", position: "eight" },
+  { name: "Boissy-Saint-Léger", position: "nine" },
+  { name: "La Queue-en-Brie", position: "ten" },
+  { name: "Val-de-Marne", position: "eleven" },
 ];
 
 const reviews = [
@@ -147,21 +183,24 @@ export default function Home() {
               </div>
               <div className="hero__proof">
                 <div><strong>4,9/5</strong><span>53 avis Google</span></div>
+                <div><strong>4,9/5</strong><span>383 avis Infobel</span></div>
                 <div><strong>5/5</strong><span>169+ avis Pages Jaunes</span></div>
                 <div><strong>24/7</strong><span>Disponibilité affichée</span></div>
               </div>
             </div>
 
-            <div className="hero__visual" aria-label="Intervention de serrurerie">
-              <div className="hero__photo hero__photo--main">
-                <Image src="/images/intervention-serrurerie.webp" alt="Intervention sur une serrure de porte" fill sizes="(max-width: 900px) 100vw, 50vw" priority />
-              </div>
-              <div className="hero__photo hero__photo--secondary">
-                <Image src="/images/serrure-porte.webp" alt="Serrure et poignée de porte après intervention" fill sizes="(max-width: 900px) 50vw, 260px" />
-              </div>
-              <div className="hero__stamp">
-                <Image src="/logo/clerjaud-mark.png" alt="" width={100} height={100} />
-                <span>Intervention<br />multi-métiers</span>
+            <div className="hero__visual" aria-label="Clerjaud Alan">
+              <div className="hero__brand-card">
+                <img className="hero__brand-logo" src="/logo/logo.png" alt="Clerjaud Alan" />
+                <div className="hero__brand-mark" aria-hidden="true">
+                  <img src="/logo/mark.png" alt="" />
+                </div>
+                <div className="hero__brand-lines">
+                  <span>Serrurerie</span>
+                  <span>Vitrerie</span>
+                  <span>Plomberie</span>
+                  <span>Chauffage</span>
+                </div>
               </div>
               <div className="hero__rail"><span>Urgence</span><strong>24h/24</strong><span>7j/7</span></div>
             </div>
@@ -169,14 +208,9 @@ export default function Home() {
         </section>
 
         <section className="trade-overview" id="metiers">
-          <div className="shell section-heading section-heading--split">
-            <div>
-              <span className="eyebrow">Les métiers</span>
-              <h2>Le bon réflexe,<br />quel que soit le problème.</h2>
-            </div>
-            <p>
-              Pas de catalogue inventé : les prestations ci-dessous reprennent uniquement les services affichés sur le profil professionnel de l’entreprise.
-            </p>
+          <div className="shell section-heading">
+            <span className="eyebrow">Les métiers</span>
+            <h2>Le bon réflexe,<br />quel que soit le problème.</h2>
           </div>
 
           <div className="shell trades-grid">
@@ -195,37 +229,37 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="process-section" id="realisations">
-          <div className="shell process-grid">
-            <div className="process-image">
-              <Image src="/images/carte-atelier-serrure.webp" alt="Carte Clerjaud Alan et serrure lors d'une intervention" fill sizes="(max-width: 900px) 100vw, 48vw" />
-              <span>Clerjaud Alan<br />Alan Assistance</span>
-            </div>
-            <div className="process-copy">
-              <span className="eyebrow">Une intervention lisible</span>
-              <h2>Un problème décrit.<br />Une réponse organisée.</h2>
-              <ol>
-                <li><span>01</span><div><strong>Vous expliquez la situation</strong><p>Choisissez le métier, le niveau d’urgence et joignez des photos utiles.</p></div></li>
-                <li><span>02</span><div><strong>Le besoin est qualifié</strong><p>L’adresse, le type de lieu et le créneau souhaité sont réunis dans une seule demande.</p></div></li>
-                <li><span>03</span><div><strong>Vous êtes recontacté</strong><p>La demande complète arrive par e-mail avec vos coordonnées et les pièces jointes.</p></div></li>
-              </ol>
-              <a className="text-link" href="#devis">Commencer la demande <ArrowIcon /></a>
-            </div>
+        <section className="gallery-section" id="realisations">
+          <div className="shell gallery-heading">
+            <span className="eyebrow">Interventions</span>
+            <h2>Quatre métiers.<br />Un même niveau d’exigence.</h2>
+          </div>
+          <div className="gallery-track shell" aria-label="Aperçu des interventions">
+            {galleryItems.map((item) => (
+              <article className="gallery-card" key={item.title}>
+                <div className="gallery-card__visual" aria-hidden="true">
+                  <span>{item.number}</span>
+                </div>
+                <div className="gallery-card__copy">
+                  <span>{item.number}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </section>
 
-        <section className="reputation-strip">
-          <div className="shell reputation-grid">
-            <div className="reputation-score">
-              <span className="eyebrow">Réputation locale</span>
-              <strong>4,9</strong>
-              <div className="stars" aria-label="4,9 étoiles sur 5">★★★★★</div>
-              <p>53 avis Google affichés sur le profil au moment des captures fournies.</p>
-            </div>
-            <div className="reputation-quote">
-              <blockquote>« Réactif, professionnel, travail propre et de très bons conseils. »</blockquote>
-              <div><strong>5/5</strong><span>169+ avis Pages Jaunes indiqués</span></div>
-            </div>
+        <section className="process-section" id="processus">
+          <div className="shell process-copy process-copy--centered">
+            <span className="eyebrow">Le déroulement</span>
+            <h2>Comment se déroule<br />une intervention&nbsp;?</h2>
+            <ol>
+              <li><span>01</span><div><strong>Vous expliquez la situation</strong><p>Choisissez le métier, le niveau d’urgence et joignez les photos utiles.</p></div></li>
+              <li><span>02</span><div><strong>La demande est précisée</strong><p>L’adresse, le type de lieu et le créneau souhaité sont regroupés dans une seule demande.</p></div></li>
+              <li><span>03</span><div><strong>Vous êtes recontacté</strong><p>Vos coordonnées et les informations nécessaires sont transmises pour organiser la suite.</p></div></li>
+            </ol>
+            <a className="text-link" href="#devis">Commencer la demande <ArrowIcon /></a>
           </div>
         </section>
 
@@ -247,18 +281,28 @@ export default function Home() {
 
         <section className="zone-section" id="zone">
           <div className="shell zone-grid">
-            <div className="zone-map" aria-hidden="true">
+            <div className="zone-map" aria-label="Zone d’intervention autour de Noiseau">
               <span className="zone-map__ring zone-map__ring--1" />
               <span className="zone-map__ring zone-map__ring--2" />
               <span className="zone-map__ring zone-map__ring--3" />
               <span className="zone-map__pin">Noiseau</span>
-              <span className="zone-map__city zone-map__city--one">Sucy-en-Brie</span>
-              <span className="zone-map__city zone-map__city--two">Val-de-Marne</span>
+              {serviceAreas.map((area) => (
+                <span
+                  className={`zone-map__city zone-map__city--${area.position}`}
+                  key={area.name}
+                >
+                  {area.name}
+                </span>
+              ))}
             </div>
             <div className="zone-copy">
-              <span className="eyebrow">Adresse & secteur</span>
-              <h2>Basé à Noiseau.</h2>
-              <p>Le profil indique une adresse au 16 Avenue Pierre Mendès-France, 94880 Noiseau. Les avis fournis mentionnent également des interventions et recommandations à Sucy-en-Brie.</p>
+              <span className="eyebrow">Zone d’intervention</span>
+              <h2>Basés à Noiseau,<br />nous intervenons autour.</h2>
+              <p>
+                Nous sommes basés à Noiseau et intervenons à Sucy-en-Brie, Saint-Maur-des-Fossés,
+                Ormesson-sur-Marne, La Varenne-Saint-Hilaire, Chennevières-sur-Marne,
+                Marolles-en-Brie, Santeny, Champigny-sur-Marne, Boissy-Saint-Léger et La Queue-en-Brie.
+              </p>
               <address>16 Av. Pierre Mendès-France<br />94880 Noiseau</address>
               <a className="button button--dark" href="https://www.google.com/maps/search/?api=1&query=16%20Avenue%20Pierre%20Mend%C3%A8s-France%2094880%20Noiseau" target="_blank" rel="noreferrer">Voir l’adresse</a>
             </div>
@@ -268,7 +312,6 @@ export default function Home() {
         <section className="quote-section" id="devis">
           <div className="shell quote-intro">
             <div><span className="eyebrow">Demande de devis</span><h2>Expliquez le problème<br />avant l’appel.</h2></div>
-            <p>Le formulaire reprend le système multi-étapes du projet technique fourni : validation, sélection de services, photos, notification entreprise et confirmation client.</p>
           </div>
           <div className="shell"><QuoteForm /></div>
         </section>
