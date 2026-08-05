@@ -266,7 +266,6 @@ export default function Home() {
         <section className="reviews-section" id="avis">
           <div className="shell section-heading section-heading--split">
             <div><span className="eyebrow">Avis clients</span><h2>Ce qui revient<br />dans les témoignages.</h2></div>
-            <p>Réactivité, sérieux, disponibilité, travail propre, conseils et tarifs jugés honnêtes.</p>
           </div>
           <div className="reviews-track shell">
             {reviews.map((review, index) => (
